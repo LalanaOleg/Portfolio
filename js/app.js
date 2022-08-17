@@ -99,16 +99,19 @@ window.addEventListener('load', function () {
       }
    }
 
-   const popupLink = document.querySelector('.popup-link');
+   const popupLinks = document.querySelectorAll('.popup-link');
    const body = document.querySelector('body');
 
    let unlock = true;
 
-   if (popupLink) {
-      popupLink.addEventListener('click', function (e) {
-         popupOpen(popupLink, '.popup');
-         e.preventDefault();
-      });
+   if (popupLinks) {
+      for (let i = 0; i < popupLinks.length; i++) {
+         const popupLink = popupLinks[i];
+         popupLink.addEventListener('click', function (e) {
+            popupOpen(popupLink, '.popup');
+            e.preventDefault();
+         });
+      }
    }
 
    const popupCloseButton = document.querySelector('.popup__close');
