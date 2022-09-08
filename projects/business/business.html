@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="eng">
 <head>	
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
 	<title>Business</title>
 
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
 <body>
 	<div class="wrapper">
@@ -187,9 +188,7 @@
 		<section class="map">
 			<div class="map__container">
 				<h5 class="map__title title anim-items">Learn more about Us in your country</h5>
-				<div class="map__map lazyloadparent">
-					<div id="map"></div>
-				</div>
+				<div class="map__map" id="map" style="height: 480px;"></div>
 			</div>
 		</section>
 
@@ -217,12 +216,24 @@
 	integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script defer src="js/app.min.js"></script>
-<script
-   src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=places&v=weekly"
-   async></script>
 <script src="js/mixitup.min.js"></script>
 <script>
    var mixer = mixitup('.mixContainer');
+</script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+<script defer>
+	var platform = new H.service.Platform({
+		'apikey': 'DNS9_IIRl5dBMmPp6r8Gyfu8PCmRl9h3itdOF-mkL1U'
+	});
+	var maptypes = platform.createDefaultLayers();
+	var map = new H.Map(
+		document.getElementById('map'),
+		maptypes.vector.normal.map,
+		{
+			zoom: 10,
+			center: { lng: 13.4, lat: 52.51 }
+		});
 </script>
 </body>
 </html>
